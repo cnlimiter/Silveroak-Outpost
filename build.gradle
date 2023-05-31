@@ -13,7 +13,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: "${mappings_channel}", version: "${mappings_version}"
+    mappings channel: 'official', version: "${minecraft_version}"
+    //mappings channel: "${mappings_channel}", version: "${mappings_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -184,8 +185,11 @@ publishing {
     }
     repositories {
         maven {
-            name = "archive"
-            url = "https://maven.lemonslice.cloud/releases"
+            name = 'release'
+            url = 'https://maven.nova-committee.cn/releases'
+
+//            name = "archive"
+//            url = "https://maven.lemonslice.cloud/releases"
             credentials {
                 username = System.env.MAVEN_USERNAME
                 password = System.env.MAVEN_PASSWORD

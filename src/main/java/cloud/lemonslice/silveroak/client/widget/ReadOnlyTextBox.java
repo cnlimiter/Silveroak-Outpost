@@ -116,6 +116,11 @@ public class ReadOnlyTextBox extends AbstractWidget
     }
 
     @Override
+    public void renderWidget(PoseStack p_268228_, int p_268034_, int p_268009_, float p_268085_) {
+
+    }
+
+    @Override
     protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput)
     {
 

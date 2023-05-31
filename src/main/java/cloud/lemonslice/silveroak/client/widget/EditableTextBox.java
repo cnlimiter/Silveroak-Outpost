@@ -373,13 +373,17 @@ public class EditableTextBox extends AbstractWidget
         this.renderCursor(poseStack, page.point, page.isInsert);
     }
 
+    @Override
+    public void renderWidget(PoseStack p_268228_, int p_268034_, int p_268009_, float p_268085_) {
+
+    }
+
     private void renderSelection(Rect2i[] selection)
     {
         Tesselator tesselator = Tesselator.getInstance();
         BufferBuilder bufferbuilder = tesselator.getBuilder();
         RenderSystem.setShader(GameRenderer::getPositionShader);
         RenderSystem.setShaderColor(0.0F, 0.0F, 1.0F, 1.0F);
-        RenderSystem.disableTexture();
         RenderSystem.enableColorLogicOp();
         RenderSystem.logicOp(GlStateManager.LogicOp.OR_REVERSE);
         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
@@ -398,7 +402,6 @@ public class EditableTextBox extends AbstractWidget
 
         tesselator.end();
         RenderSystem.disableColorLogicOp();
-        RenderSystem.enableTexture();
     }
 
     private void renderCursor(PoseStack poseStack, Point point, boolean isInsert)

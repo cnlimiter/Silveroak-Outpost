@@ -152,7 +152,7 @@ public final class GuiHelper
     public static void drawSpecialString(Font font, String text, float x, float y, int color, boolean shadow, boolean transparent, int colorBackground, int packedLight)
     {
         MultiBufferSource.BufferSource iRenderTypeBuffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
-        font.drawInBatch(text, x, y, color, shadow, Transformation.identity().getMatrix(), iRenderTypeBuffer, transparent, colorBackground, packedLight);
+        font.drawInBatch(text, x, y, color, shadow, Transformation.identity().getMatrix(), iRenderTypeBuffer, transparent ? Font.DisplayMode.SEE_THROUGH : Font.DisplayMode.NORMAL, colorBackground, packedLight);
         iRenderTypeBuffer.endBatch();
     }
 

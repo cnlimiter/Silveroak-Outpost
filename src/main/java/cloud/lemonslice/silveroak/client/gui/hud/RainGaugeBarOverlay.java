@@ -44,7 +44,7 @@ public class RainGaugeBarOverlay extends GuiComponent implements IGuiOverlay
                 if (handed.equals(SilveroakItemsRegistry.RAIN_GAUGE.get()))
                 {
                     Biome biome = clientPlayer.getLevel().getBiome(clientPlayer.blockPosition()).value();
-                    float rainfall = biome.getDownfall();
+                    float rainfall = biome.getModifiedClimateSettings().downfall();
 
                     RenderSystem.setShader(GameRenderer::getPositionTexShader);
                     RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);

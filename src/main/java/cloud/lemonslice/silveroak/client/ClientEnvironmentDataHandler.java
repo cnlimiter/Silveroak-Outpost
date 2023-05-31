@@ -26,7 +26,7 @@ public final class ClientEnvironmentDataHandler
     {
         Player player = SilveroakOutpost.PROXY.getClientPlayer();
         Biome biome = player.getLevel().getBiome(player.blockPosition()).value();
-        float rainfallF = biome.getDownfall();
+        float rainfallF = biome.getModifiedClimateSettings().downfall();
         Rainfall rainfall = Rainfall.getRainfallLevel(rainfallF);
         return Component.translatable("info.silveroak.environment.rainfall", rainfall.getTranslation(), new DecimalFormat("0.00").format(rainfallF));
     }
@@ -37,7 +37,7 @@ public final class ClientEnvironmentDataHandler
         Player player = SilveroakOutpost.PROXY.getClientPlayer();
         Biome biome = player.getLevel().getBiome(player.blockPosition()).value();
         float tempF = biome.getHeightAdjustedTemperature(player.blockPosition());
-        float rainfallF = biome.getDownfall();
+        float rainfallF = biome.getModifiedClimateSettings().downfall();
         Humidity humidity = Humidity.getHumid(rainfallF, tempF);
         return Component.translatable("info.silveroak.environment.humidity", humidity.getTranslation());
     }

@@ -47,7 +47,7 @@ public class HygrometerBarOverlay extends GuiComponent implements IGuiOverlay
                 {
                     Biome biome = clientPlayer.getLevel().getBiome(clientPlayer.blockPosition()).value();
                     float temperature = biome.getHeightAdjustedTemperature(clientPlayer.blockPosition());
-                    float rainfall = biome.getDownfall();
+                    float rainfall = biome.getModifiedClimateSettings().downfall();
 
                     RenderSystem.setShader(GameRenderer::getPositionTexShader);
                     RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
